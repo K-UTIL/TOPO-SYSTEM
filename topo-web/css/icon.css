@@ -1,0 +1,49 @@
+.btn-save {
+    background-image: url("../image/icon/baocun.png");
+}
+
+.btn-export {
+    background-image: url("../image/icon/daochu.png");
+}
+
+.btn-undo{
+    background-image: url("../image/icon/chexiao1.png");
+}
+
+.btn-redo{
+    background-image: url("../image/icon/chongzuo1.png");
+}
+
+.btn-enlarge{
+    background-image: url("../image/icon/fangda1.png");
+}
+
+.btn-narrow{
+    background-image: url("../image/icon/suoxiao1.png");
+}
+
+.btn-full-screen{
+    background-image: url("../image/icon/quanpin1.png");
+}
+.btn-screen{
+    background-image: url("../image/icon/fangyin1.png");
+}
+
+
+.btn-self-adaption{
+    background-image: url("../image/icon/zishiyin1.png");
+}
+
+.btn-line{
+    background-image: url("../image/icon/lianjiex1.png");
+}
+.btn-choice{
+    background-image: url("../image/icon/xuanze1.png");
+}
+.btn-text{
+    background-image: url("../image/icon/wenben1.png");
+}
+
+.btn-edit{
+    background-image: url("../image/icon/icon_edit.png");
+}

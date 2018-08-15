@@ -1,0 +1,12 @@
+#topo-left-tools .layui-colla-title{
+    background: none;
+}
+#topo-left-tools .layui-colla-content{
+    border-top: 1px solid #DFDFDF;
+}
+#topo-left-tools .layui-colla-item{
+    border: none;
+}
+#topo-left-tools .layui-collapse{
+    border-top: none;
+}

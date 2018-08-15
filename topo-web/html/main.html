@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>topo-main</title>
+    <script src="../dep/jquery/jquery-3.3.1.min.js" type="application/javascript"></script>
+    <script src="../dep/layui/layui.js" type="application/javascript"></script>
+    <script src="../dep/vis/vis.js" type="application/javascript"></script>
+
+    <link href="../dep/vis/vis.min.css" rel="stylesheet">
+    <link href="../dep/layui/css/layui.css" rel="stylesheet">
+    <link href="../dep/scant/scant.css" rel="stylesheet">
+
+    <link href="../css/topo-main.css" rel="stylesheet">
+    <link href="../css/icon.css" rel="stylesheet">
+    <link href="../css/layui-plus.css" rel="stylesheet">
+
+    <script src="../js/topo-design.js" type="application/javascript"></script>
+    <script src="../data/nodesType.js" type="application/javascript"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <!--顶部工具栏-->
+    <div id="topo-top-tools">
+        <div id="sys-btn-group">
+            <button class="sc-btn"><span class="btn-icon btn-save"></span>保存</button>
+            <button class="sc-btn"><span class="btn-icon btn-export"></span>导出</button>
+        </div>
+        <div id="draw-btn-group">
+            <div id="topo-draw-tools">
+                <button class="sc-btn btn-sm btn-icon btn-choice">选择工具</button>
+                <button class="sc-btn btn-sm btn-icon btn-text">文本</button>
+                <button class="sc-btn btn-sm btn-icon btn-line">连接线</button>
+            </div>
+            <div id="topo-status-tools">
+                <button class="sc-btn btn-sm btn-icon btn-undo"></button>
+                <button class="sc-btn btn-sm btn-icon btn-redo"></button>
+            </div>
+
+        </div>
+    </div>
+    <!--中间窗口-->
+    <div id="topo-main">
+        <!--节点工具栏-->
+        <div id="topo-left-tools">
+            <h2 style="text-align: center">形状</h2>
+            <div class="layui-collapse">
+
+            </div>
+
+            <div id="left-tools-switch">
+
+            </div>
+        </div>
+        <!--编辑主窗口-->
+        <div id="topo-middle-view">
+
+            <!--垃圾场-->
+            <div style="position: absolute;z-index: -50;top: 0;left: 0;width: 0;height: 0" id="preload">
+
+            </div>
+
+            <!--vis绘制容器-->
+            <div id="topo-viewer"
+                 style="width: 100%;height:100%;z-index: 0;background-color:#f7f8fa ;position: relative">
+
+            </div>
+        </div>
+        <div id="topo-right-info">
+            <div id="node-info">
+                <div class="info-div">
+                    <h2>属性信息</h2>
+                    <p>设备名称：<span>测试</span></p>
+                    <p>设备IP：<span>测试</span></p>
+                    <p>设备类型：<span>测试</span></p>
+                    <p>是否为台站设备：<span>测试</span></p>
+                    <p>PDU开关信序号：<span>测试</span></p>
+
+                </div>
+                <button id="node-info-edit" class="sc-btn"><span class="btn-icon btn-edit"></span>编辑属性</button>
+            </div>
+            <div id="edit-node-info">
+                <label for="edit-node-info-name">设备名称</label><input type="text" id="edit-node-info-name">
+                <label for="edit-node-info-ip">设备IP</label><input type="text" id="edit-node-info-ip">
+                <label for="edit-node-info-type">设备类型</label><select type="text" id="edit-node-info-type">
+
+            </select>
+                <label for="edit-node-info-is-station-dev">是否为台站设备</label><select type="text"
+                                                                                  id="edit-node-info-is-station-dev">
+                <option value="1">是</option>
+                <option value="2">否</option>
+            </select>
+                <label for="edit-node-info-pdu-number">PDU开关序号</label><input id="edit-node-info-pdu-number">
+                <button id="edit-node-info-save" class="sc-btn"><span class="btn-icon btn-save"></span>确定</button>
+                <button id="edit-node-info-cancel" class="sc-btn"><span class="btn-icon btn-cancel"></span>取消</button>
+
+            </div>
+            <div id="edit-line-info">
+                <label for="edit-line-info-color">线条颜色</label><select id="edit-line-info-color"></select>
+                <label for="edit-line-info-width">线条粗细</label><select id="edit-line-info-width"></select>
+                <label for="edit-line-info-type">线条类型</label><select id="edit-line-info-type"></select>
+            </div>
+        </div>
+    </div>
+    <!--底部工具栏-->
+    <div id="topo-bottom-tools">
+        <button class="sc-btn btn-sm btn-icon btn-screen"></button>
+        <button class="sc-btn btn-sm btn-icon btn-full-screen"></button>
+        <div id="zoom-bar">
+            <button class="sc-btn btn-sm btn-icon btn-narrow"></button>
+            进度条
+            <button class="sc-btn btn-sm btn-icon btn-enlarge"></button>
+        </div>
+        <button class="sc-btn btn-sm btn-icon btn-self-adaption"></button>
+
+    </div>
+</div>
+<!--弹窗-->
+<div id="popups" style="display: none;">
+
+</div>
+
+</body>
+</html>
