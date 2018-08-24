@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topo-designer</title>
+    <!--<script src="/src/index.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/bottom/Buttons.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/bottom/ZoomRange.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/data/ApiManager.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/data/Config.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/data/ParamHolder.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/extend/VisExtend.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/extend/Icon.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/extend/Icon.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/middle/LeftNodeTool.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/middle/RightWin.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/top/TopVisTool.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/top/Revert.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/top/SaveAndExport.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/ts/util/Utils.ts" type="application/javascript"></script>-->
+    <!--<script src="/src/css-module.d.ts" type="application/javascript"></script>-->
+
+
+
+
+
+    <!--<script src="src/custom-dep/jquery/jquery-3.3.1.js" type="application/javascript"></script>-->
+    <!--<script src="src/custom-dep/layui/layui.all.js" type="application/javascript"></script>-->
+
+    <!--<link href="src/custom-dep/layui/css/layui.css" rel="stylesheet">-->
+    <!--<link href="src/custom-dep/scant/scant.css" rel="stylesheet">-->
+    <!--<link href="src/css/displayControl.css" rel="stylesheet">-->
+    <!--<link href="src/css/icon.css" rel="stylesheet">-->
+    <!--<link href="src/css/layui-plus.css" rel="stylesheet">-->
+    <!--<link href="src/css/topo-main.css" rel="stylesheet">-->
+    <!--<link href="src/css/vis-extend.css" rel="stylesheet">-->
+
+</head>
+<body>
+<div id="main">
+    <!--顶部工具栏-->
+    <div id="topo-top-tools">
+        <div id="sys-btn-group">
+            <button id="topo-save" class="sc-btn"><span class="btn-icon btn-save"></span>保存</button>
+            <button id="topo-export" class="sc-btn"><span class="btn-icon btn-export"></span>导出</button>
+        </div>
+        <div id="draw-btn-group">
+            <div id="topo-draw-tools">
+                <button id="tool-choice" class="sc-btn btn-sm btn-icon btn-choice"><span>选择工具</span></button>
+                <button id="tool-text" class="sc-btn btn-sm btn-icon btn-text"><span>文本</span></button>
+                <button id="tool-line" class="sc-btn btn-sm btn-icon btn-line"><span>连接线</span></button>
+                <button id="tool-delete" class="sc-btn btn-sm btn-icon btn-delete"><span>删除选中</span></button>
+            </div>
+            <div id="topo-status-tools">
+                <button class="sc-btn btn-sm btn-icon btn-undo unavailable"></button>
+                <button class="sc-btn btn-sm btn-icon btn-redo unavailable"></button>
+            </div>
+
+        </div>
+    </div>
+    <!--中间窗口-->
+    <div id="topo-main">
+        <!--节点工具栏-->
+        <div id="topo-left-tools">
+            <h2 style="text-align: center">形状</h2>
+            <div class="layui-collapse">
+
+            </div>
+
+            <div id="left-tools-switch">
+
+            </div>
+        </div>
+        <!--编辑主窗口-->
+        <div id="topo-middle-view">
+
+            <!--垃圾场-->
+            <div style="position: absolute;z-index: -50;top: 50%;right: 50%;width: 0;height: 0" id="preload">
+
+            </div>
+
+            <!--vis绘制容器-->
+            <div id="topo-viewer"
+                 style="width: 100%;height:100%;z-index: 0;background-color:#f7f8fa ;position: relative">
+
+            </div>
+        </div>
+        <div id="topo-right-info">
+            <div id="node-info" class="hide">
+                <div class="info-div">
+                    <h2>属性信息</h2>
+                    <p>设备名称：<span>测试</span></p>
+                    <p>设备IP：<span>测试</span></p>
+                    <p>设备类型：<span>测试</span></p>
+                    <p>是否为台站设备：<span>测试</span></p>
+                    <p>PDU开关信序号：<span>测试</span></p>
+                    <p>备注：<span>测试</span></p>
+
+                </div>
+                <button id="node-info-edit" class="sc-btn"><span class="btn-icon btn-edit"></span>编辑属性</button>
+            </div>
+            <div id="edit-node-info" class="hide">
+                <div id="edit-node-info-form">
+                    <h2>编辑属性</h2>
+                    <div><label for="edit-node-info-name">设备名称</label><input type="text" id="edit-node-info-name"></div>
+                    <div><label for="edit-node-info-ip">设备IP</label><input type="text" id="edit-node-info-ip"></div>
+                    <div><label for="edit-node-info-type">设备类型</label><select type="text" id="edit-node-info-type">
+
+                    </select></div>
+                    <div><label for="edit-node-info-is-station-dev">属于台站</label><select type="text"
+                                                                                        id="edit-node-info-is-station-dev">
+                        <option value="1">是</option>
+                        <option value="2">否</option>
+                    </select></div>
+                    <div><label for="edit-node-info-pdu-number">PDU序号</label><input id="edit-node-info-pdu-number">
+                    </div>
+                    <div><label for="edit-node-info-mark">备注</label><textarea id="edit-node-info-mark"></textarea>
+                    </div>
+                </div>
+                <div id="edit-btn-group">
+                    <button id="edit-node-info-save" class="sc-btn"><span class="btn-icon btn-save"></span>确定</button>
+                    <button id="edit-node-info-cancel" class="sc-btn"><span class="btn-icon btn-cancel"></span>取消
+                    </button>
+                </div>
+            </div>
+            <div id="edit-line-info" class="hide">
+                <h2>属性信息</h2>
+                <div><label for="edit-line-info-color">线条颜色</label><select id="edit-line-info-color"></select></div>
+                <div><label for="edit-line-info-width">线条粗细</label><select id="edit-line-info-width"></select></div>
+                <div><label for="edit-line-info-type">线条类型</label><select id="edit-line-info-type"></select></div>
+                <div><label for="edit-line-info-arrows">方向</label><select id="edit-line-info-arrows">
+                    <!--<option value="1">有向</option>-->
+                    <!--<option value="2">无向</option>-->
+                    <!--<option value="3">双向</option>-->
+                </select></div>
+                <div><label for="edit-line-info-mark">备注</label><textarea id="edit-line-info-mark"></textarea></div>
+
+            </div>
+        </div>
+    </div>
+    <!--底部工具栏-->
+    <div id="topo-bottom-tools">
+        <label for="test_stNumber" style="justify-items: flex-start">台站编码</label><input id="test_stNumber">
+        <button class="sc-btn btn-sm btn-icon btn-screen selected"></button>
+        <button class="sc-btn btn-sm btn-icon btn-full-screen"></button>
+        <div id="zoom-bar">
+            <span>100%</span>
+            <button class="sc-btn btn-sm btn-icon btn-narrow"></button>
+            <input  id="zoom-range" type="range" min="20" max="200" value="100" class="zoom-range-slider">
+            <button class="sc-btn btn-sm btn-icon btn-enlarge"></button>
+        </div>
+        <button class="sc-btn btn-sm btn-icon btn-self-adaption"></button>
+
+    </div>
+</div>
+<!--弹窗-->
+<div id="popups" style="display: none;">
+
+</div>
+
+<!--<script src="./webpackOut/bundle.js" type="application/javascript"></script>-->
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: showclear
+    url: jdbc:mysql://192.168.101.233:3306/DB_SC_TOPO_PLUS
+    password: showclear
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+    show-sql: true
+#  mvc:
+#    static-path-pattern: /**
+#  resources:
+#    static-locations: /
+server:
+  servlet:
+    context-path: /topo
