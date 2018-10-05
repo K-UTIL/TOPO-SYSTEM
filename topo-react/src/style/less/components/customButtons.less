@@ -1,0 +1,40 @@
+.customBtn{
+  position: relative;
+  border: 1px solid #dfdfdf;
+  background: #fafafa !important;
+
+  &.top i{
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    color: #7898d3;
+  }
+
+  &.selected , &:focus{
+    background: #efefef !important;
+    
+    & i{
+      color: #f56a00;
+    }
+  }
+
+  & span{
+    color: #000;
+    font-size: 16px;
+    position: absolute !important;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    margin-left: auto !important;
+    margin-right: auto;
+  }
+
+  &.extent-bg{
+    height: 58px;
+    width: 75px;
+  }
+}
