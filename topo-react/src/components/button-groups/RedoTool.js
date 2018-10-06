@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Icon} from "antd/lib/index";
-import {ApiConstant} from "../../api/ApiConstant";
+import {MyIcon} from "../../api/ApiConstant";
 import {Button} from "antd";
 
 class RedoTool extends Component {
@@ -39,7 +39,6 @@ class RedoTool extends Component {
     }
 
     render() {
-        const MyIcon = ApiConstant.MyIcon;
         return (
             <div>
                 <Button><MyIcon type={"icon-icon-test"}/></Button>

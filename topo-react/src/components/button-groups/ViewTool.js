@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {ApiConstant} from "../../api/ApiConstant";
+import {MyIcon} from "../../api/ApiConstant";
 import {Button, Slider} from "antd";
 
 class ViewTool extends Component {
@@ -37,7 +37,6 @@ class ViewTool extends Component {
     }
 
     render() {
-        const MyIcon = ApiConstant.MyIcon;
         return (
             <div>
                <Button><MyIcon type={"icon-dapingfangying"}/></Button>

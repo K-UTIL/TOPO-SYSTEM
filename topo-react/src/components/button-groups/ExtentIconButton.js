@@ -1,7 +1,7 @@
 import {Button} from "antd";
 import {Icon} from "antd/lib/index";
 import React, {Component} from 'react';
-import {ApiConstant} from "../../api/ApiConstant";
+import {MyIcon} from "../../api/ApiConstant";
 
 export default class ExtentIconButton extends Component{
 
@@ -11,7 +11,6 @@ export default class ExtentIconButton extends Component{
     }
 
     render() {
-        const MyIcon =ApiConstant.MyIcon;
 
         return (
             <Button className={"customBtn extent-bg top"} ghost onClick={this.props.onClick}>
